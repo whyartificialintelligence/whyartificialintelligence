@@ -1,0 +1,84 @@
+@font-face 
+{
+	font-family : OranngeEleganceFont;
+	src : url(../font/orannge.elegance.ttf);
+}
+@font-face 
+{
+	font-family : OranngeCursiveFont;
+	src : url(../font/orannge.cursive.ttf);
+}
+
+#canvasAreaId
+{
+	margin:auto;
+	width:100%;
+	height:100%;
+	/*background-color:lightgray;*/
+}
+
+
+/* TEXTS */
+/*allow generic custom font classes*/
+.OranngeEleganceFontClassification
+{	
+	font-family : OranngeEleganceFont;
+}
+.OranngeCursiveFontClassification
+{	
+	font-family : OranngeCursiveFont;
+}
+/*allow sizable generic custom font classes*/
+.LargeOranngeEleganceFontClassification
+{	
+	font-family : OranngeEleganceFont;
+	font-size : 90px;
+}
+.MediumOranngeEleganceFontClassification
+{	
+	font-family : OranngeEleganceFont;
+	font-size : 32px;
+}
+.NormalOranngeEleganceFontClassification
+{	
+	font-family : OranngeEleganceFont;
+	font-size : 16px;
+}
+.SmallOranngeEleganceFontClassification
+{	
+	font-family : OranngeEleganceFont;
+	font-size : 12px;
+}
+.LargeOranngeCursiveFontClassification
+{	
+	font-family : OranngeCursiveFont;
+	font-size : 90px;
+}
+.MediumOranngeCursiveFontClassification
+{	
+	font-family : OranngeCursiveFont;
+	font-size : 32px;
+}
+.NormalOranngeCursiveFontClassification
+{	
+	font-family : OranngeCursiveFont;
+	font-size : 16px;
+}
+.SmallOranngeCursiveFontClassification
+{	
+	font-family : OranngeCursiveFont;
+	font-size : 12px;
+}
+/*allow font colour selection*/
+.FontShade
+{
+	color:rgb(230,230,230);
+}
+.ContentPlainFontShade
+{
+	color:rgb(85,85,85);
+}
+.ContentPrettyFontShade
+{
+	color:rgb(0,160,230);
+}
