@@ -124,23 +124,28 @@
 					///////////////////////////////////////////////
 					// profile picture image
 					///////////////////////////////////////////////
-					var profilePictureRadius = 170;
-					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
-					var profilePictureCircleY = profilePictureRadius * 2;
-					var profilePictureCircle = new Kinetic.Circle
+		
+					var profilePictureRadius = 470;
+					var profilePictureHeight = 270;
+					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius;
+					var profilePictureCircleY = canvasHeight / 2 - profilePictureRadius + profilePictureHeight/3 + 3;
+					
+					var profilePictureCircle = new Kinetic.Rect
 					(
 						{
-							offset: [ profilePictureRadius / 2, profilePictureRadius / 2 ],
-							radius: profilePictureRadius,
+							offset: [ profilePictureRadius, profilePictureRadius ],
 							fillPatternImage: images.jobSeekerProfilePictureImageSource,
-							fillPatternOffset: [ profilePictureRadius, profilePictureRadius ],
-							fillPatternRepeat: "repeat-y",
+							fillPatternOffset: [ 2, 34 ],
+							fillPatternRepeat: "repeat-x",
+							width:profilePictureRadius,
+							height:profilePictureHeight,
 							shadowOffsetX: 0,
 							shadowOffsetY: 0,
 							shadowBlur: 23,
 							shadowColor: "#55b3f3"
 						}
 					);
+					
 					
 					//profilePictureCircle.fillPatternImage = images.entrepreneurProfilePictureImageSource;
 					/*
@@ -221,7 +226,7 @@
 							var verticalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 )
+								if ( i != 2 && i != 3 && i != 4&& i != 5)
 									functionBubbleHorizontalCollection [ i ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * verticalStep ) * ( Math.PI / 180 ) );
 								verticalStep ++;
 							}
@@ -229,14 +234,16 @@
 							var horizontalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 )
+								if ( i != 2 && i != 3 && i != 4 && i != 5)
 									functionBubbleVerticalCollection [ i ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * horizontalStep ) * ( Math.PI / 180 ) );
 								horizontalStep ++;
 							}
 							
 							//fix 3rd and 4th button irresponsive issue without adjusting other button distance from center 
 							var fixValue3rd = 10;
-							var fixValue4th = 44;
+							var fixValue4th = 500;
+							var fixValue5th = -23;
+							var fixValue6th = -35;
 							
 							profilePictureAxisRadius = profilePictureAxisRadius + fixValue3rd;
 							
@@ -249,7 +256,20 @@
 							functionBubbleHorizontalCollection [ 3 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
 							functionBubbleVerticalCollection [ 3 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
 						
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue5th;
 							
+							functionBubbleHorizontalCollection [ 4 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 4 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
+						
+							
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue6th;
+							
+							functionBubbleHorizontalCollection [ 5 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 5 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
+						
+						
 							
 							//establish kinetic group for profileFunctionBubbleImage collection
 							var functionBubbleImages = new Kinetic.Group
@@ -399,7 +419,7 @@
 										{
 											points: [ x1, y1, x2, y2 ],
 											stroke: '#55b3f3',
-											strokeWidth: 2,
+											strokeWidth: 1,
 											lineCap: 'round',
 											lineJoin: 'round',
 											/*
@@ -407,7 +427,7 @@
 											 * of 20px followed by a line segment of 0.001px (a dot)
 											 * followed by a gap of 20px
 											 */
-											dashArray: [ 6, 6, 0.001, 6 ]
+											dashArray: [ 1, 1, 0.2, 1 ]
 										}
 									);
 									
@@ -423,20 +443,20 @@
 						//render body
 						var oranngeLogoImageWidth = 120;
 						var oranngeLogoImageHeight = 120;
-						var oranngeLogoImageX = 90;
-						var oranngeLogoImageY = 90;
+						var oranngeLogoImageX = 65;
+						var oranngeLogoImageY = 65;
 						var oranngeLogoImage = new Kinetic.Image
 						( 
 							{
 								image: images.oranngeLogoImageSource,
-								offset: [ oranngeLogoImageX, oranngeLogoImageY ],
+								offset: [ oranngeLogoImageX, oranngeLogoImageY + 35 ],
 								width: oranngeLogoImageWidth,
 								height: oranngeLogoImageHeight							
 							} 
 						);
 						oranngeLogoImage.setPosition ( oranngeLogoImageX, oranngeLogoImageY );
 						//render text
-						var oranngeLogoImageTextX = oranngeLogoImageX + 10;
+						var oranngeLogoImageTextX = oranngeLogoImageX + 30;
 						var oranngeLogoImageTextY = oranngeLogoImageY - 80;
 						var oranngeLogoImageText = new Kinetic.Text 
 						(
