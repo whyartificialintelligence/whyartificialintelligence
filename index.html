@@ -238,10 +238,11 @@
 						
 						//define coordinate generation variables
 							//define horizontal ( x ) coordinates
+							/*
 							var verticalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 )
+								if ( i != 2 && i != 3 && i != 4 )
 									functionBubbleHorizontalCollection [ i ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * verticalStep ) * ( Math.PI / 180 ) );
 								verticalStep ++;
 							}
@@ -249,16 +250,38 @@
 							var horizontalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 )
+								if ( i != 2 && i != 3 && i != 4 )
 									functionBubbleVerticalCollection [ i ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * horizontalStep ) * ( Math.PI / 180 ) );
 								horizontalStep ++;
 							}
+							*/
 							
-							
-							//fix 3rd and 4th button irresponsive issue without adjusting other button distance from center 
+							//fix 3rd and 4th... button irresponsive issue without adjusting other button distance from center 
+							var fixValue1st = 230;
+							var fixValue2nd = -514;
 							var fixValue3rd = 10;
 							var fixValue4th = 14;
+							var fixValue5th = -494;
+							var fixValue6th = 54;
+							var fixValue7th = 14;
 							
+							
+							
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue1st;
+							
+							functionBubbleHorizontalCollection [ 0 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 1 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 0 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 1 ) * ( Math.PI / 180 ) );
+							
+							
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue2nd;
+							
+							functionBubbleHorizontalCollection [ 1 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 2 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 1 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 2 ) * ( Math.PI / 180 ) );
+							
+							
+							profilePictureAxisRadius = 250;
 							profilePictureAxisRadius = profilePictureAxisRadius + fixValue3rd;
 							
 							functionBubbleHorizontalCollection [ 2 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 3 ) * ( Math.PI / 180 ) );
@@ -270,6 +293,26 @@
 							functionBubbleHorizontalCollection [ 3 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
 							functionBubbleVerticalCollection [ 3 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
 						
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue5th;
+							
+							functionBubbleHorizontalCollection [ 4 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 4 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
+						
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue6th;
+							
+							functionBubbleHorizontalCollection [ 5 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 5 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
+						
+						
+							profilePictureAxisRadius = 250;
+							profilePictureAxisRadius = profilePictureAxisRadius + fixValue7th;
+							
+							functionBubbleHorizontalCollection [ 6 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 7 ) * ( Math.PI / 180 ) );
+							functionBubbleVerticalCollection [ 6 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 7 ) * ( Math.PI / 180 ) );
+						
+													
 							
 							//establish kinetic group for profileFunctionBubbleImage collection
 							var functionBubbleImages = new Kinetic.Group
