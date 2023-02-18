@@ -1,4 +1,4 @@
-<!-- Author: God Bennett, whyai Copyright 2023 -->
+<!-- Author: God Bennett, orannge (tm) Copyright 2023 -->
 <html>
 	<head>
 		<link href = 'data/stylesheet/orannge.css' type = 'text/css' rel = 'stylesheet'/>
@@ -119,33 +119,49 @@
 					
 					var layer = new Kinetic.Layer ( );
 					
-					
+
 					///////////////////////////////////////////////
 					// profile picture image
 					///////////////////////////////////////////////
-		
-					var profilePictureRadius = 470;
-					var profilePictureHeight = 270;
-					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius;
-					var profilePictureCircleY = canvasHeight / 2 - profilePictureRadius + profilePictureHeight/3 + 3;
 					
-					var profilePictureCircle = new Kinetic.Rect
+	
+					var profilePictureRadius = 170;
+					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
+					var profilePictureCircleY = profilePictureRadius * 2;
+					var profilePictureCircle = new Kinetic.Circle
 					(
 						{
-							offset: [ profilePictureRadius, profilePictureRadius ],
+							offset: [ profilePictureRadius / 2, profilePictureRadius / 2 ],
+							radius: profilePictureRadius,
 							fillPatternImage: images.jobSeekerProfilePictureImageSource,
-							fillPatternOffset: [ 2, 34 ],
-							fillPatternRepeat: "repeat-x",
-							width:profilePictureRadius,
-							height:profilePictureHeight,
+							fillPatternOffset: [ profilePictureRadius, profilePictureRadius ],
+							fillPatternRepeat: "repeat-y",
 							shadowOffsetX: 0,
 							shadowOffsetY: 0,
-							shadowBlur: 23,
+							shadowBlur:  23, //default 23
 							shadowColor: "#55b3f3"
 						}
 					);
+
+					///v2
+					var pI2W = profilePictureRadius * 2;
+					var pI2H = profilePictureRadius * 2;
+					var pI2X = profilePictureCircleX/2 + pI2W/1.2;
+					var pI2Y = canvasHeight/2 - pI2H;//profilePictureCircleY/2 - pI2H/40;
+					var pI2 = new Kinetic.Image
+					( 
+						{
+							image: images.whyAiLogoProfile,
+							offset: [ profilePictureRadius / 2, profilePictureRadius / 2 ],
+							width: pI2W,
+							height: pI2H,	
+							fillPatternImage: images.whyAiPictureImageSource,
+							
+						} 
+					);
+					pI2.setPosition ( pI2X, pI2Y );
 					
-					
+						
 					//profilePictureCircle.fillPatternImage = images.entrepreneurProfilePictureImageSource;
 					/*
 					profilePictureCircle.on 
@@ -208,7 +224,7 @@
 					// establish profile function bubble image
 					///////////////////////////////////////////////
 						//establish orannge function bubble variables
-						var profilePictureAxisRadius = 240; //this constant directly affects the functio buttons' distance from the sun (sun = profile picture)
+						var profilePictureAxisRadius = 250; //230 default; this constant directly affects the functio buttons' distance from the sun (sun = profile picture)
 						var MAXIMUM_FUNCTION_BUBBLES = 7;
 						var functionBubbleRadius = 48;
 						
@@ -225,7 +241,7 @@
 							var verticalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 && i != 4&& i != 5)
+								if ( i != 2 && i != 3 )
 									functionBubbleHorizontalCollection [ i ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * verticalStep ) * ( Math.PI / 180 ) );
 								verticalStep ++;
 							}
@@ -233,16 +249,15 @@
 							var horizontalStep = 1;
 							for ( var i = 0; i < MAXIMUM_FUNCTION_BUBBLES; i ++ )
 							{
-								if ( i != 2 && i != 3 && i != 4 && i != 5)
+								if ( i != 2 && i != 3 )
 									functionBubbleVerticalCollection [ i ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * horizontalStep ) * ( Math.PI / 180 ) );
 								horizontalStep ++;
 							}
 							
+							
 							//fix 3rd and 4th button irresponsive issue without adjusting other button distance from center 
 							var fixValue3rd = 10;
-							var fixValue4th = 500;
-							var fixValue5th = -23;
-							var fixValue6th = -35;
+							var fixValue4th = 14;
 							
 							profilePictureAxisRadius = profilePictureAxisRadius + fixValue3rd;
 							
@@ -254,20 +269,6 @@
 							
 							functionBubbleHorizontalCollection [ 3 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
 							functionBubbleVerticalCollection [ 3 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 4 ) * ( Math.PI / 180 ) );
-						
-							profilePictureAxisRadius = 250;
-							profilePictureAxisRadius = profilePictureAxisRadius + fixValue5th;
-							
-							functionBubbleHorizontalCollection [ 4 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
-							functionBubbleVerticalCollection [ 4 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 5 ) * ( Math.PI / 180 ) );
-						
-							
-							profilePictureAxisRadius = 250;
-							profilePictureAxisRadius = profilePictureAxisRadius + fixValue6th;
-							
-							functionBubbleHorizontalCollection [ 5 ] = profilePictureCircleX - functionBubbleRadius / 2 - 12 + profilePictureAxisRadius * Math.cos ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
-							functionBubbleVerticalCollection [ 5 ] = profilePictureCircleY - functionBubbleRadius / 2 - 20 + profilePictureAxisRadius * Math.sin ( ( angleStep * 6 ) * ( Math.PI / 180 ) );
-						
 						
 							
 							//establish kinetic group for profileFunctionBubbleImage collection
@@ -332,7 +333,7 @@
 									//alert ( node.getId ( ) );
 									stage.draw ( );
 									
-									//whyai, whyai, africa, finance, carribean
+									//about, whyai, africa, finance, carribean, author
 									var functionBubbleUrls = [ "https://www.instagram.com/p/CnfwCUmvdYA/", "https://youtu.be/lN8YpmW2HZs", "https://youtu.be/-f-MbQvJR3A", "https://youtu.be/yeKIGBnzksU", "https://youtu.be/SDQEIiqU0bs", "https://drive.google.com/file/d/1dzQP6hy4TbMuFRTlt26Mb2XAuQ9xB-xc/edit", "https://github.com/g0dEngineer/" ];
 									
 									var nodeName = node.getId ( );
@@ -417,8 +418,8 @@
 									(
 										{
 											points: [ x1, y1, x2, y2 ],
-											stroke: '#55b3f3',
-											strokeWidth: 1,
+											stroke: '#fffff',
+											strokeWidth: .1,
 											lineCap: 'round',
 											lineJoin: 'round',
 											/*
@@ -442,20 +443,20 @@
 						//render body
 						var oranngeLogoImageWidth = 120;
 						var oranngeLogoImageHeight = 120;
-						var oranngeLogoImageX = 65;
-						var oranngeLogoImageY = 65;
+						var oranngeLogoImageX = 90;
+						var oranngeLogoImageY = 90;
 						var oranngeLogoImage = new Kinetic.Image
 						( 
 							{
 								image: images.oranngeLogoImageSource,
-								offset: [ oranngeLogoImageX, oranngeLogoImageY + 35 ],
+								offset: [ oranngeLogoImageX, oranngeLogoImageY ],
 								width: oranngeLogoImageWidth,
 								height: oranngeLogoImageHeight							
 							} 
 						);
 						oranngeLogoImage.setPosition ( oranngeLogoImageX, oranngeLogoImageY );
 						//render text
-						var oranngeLogoImageTextX = oranngeLogoImageX + 30;
+						var oranngeLogoImageTextX = oranngeLogoImageX + 10;
 						var oranngeLogoImageTextY = oranngeLogoImageY - 80;
 						var oranngeLogoImageText = new Kinetic.Text 
 						(
@@ -524,10 +525,10 @@
 					//add function bubble images TO final layer
 					layer.add ( functionBubbleImages );
 					layer.add ( oranngeProfileFunctionButtonLabelTexts );
-					
+
 					//finally, add profile picture circle, which consists of customized image of fixed pattern
-					layer.add ( profilePictureCircle );
-					
+					//layer.add ( profilePictureCircle );
+					layer.add (pI2);
 					
 					stage.add ( layer );
 					
@@ -540,7 +541,7 @@
 						{
 							case 0:
 							{
-								profilePictureCircle.setFillPatternImage ( images.entrepreneurProfilePictureImageSource );
+								pI2.setFillPatternImage ( images.entrepreneurProfilePictureImageSource );
 								oranngeLogoImageText.setText ( 'WhyAi Core' );
 								oranngeTagAreaBackgroundText.setText ( '1st known ecosystem seeking to democratize generalist ai model usage' );
 								oranngeProfileFunctionButtonLabelTexts.get ( '.profileFunctionBubbleClass' ) [ 0 ].setText ( textSourcesSetB [ 0 ] );
@@ -549,7 +550,7 @@
 							break
 							case 1:
 							{
-								profilePictureCircle.setFillPatternImage ( images.jobSeekerProfilePictureImageSource );
+								pI2.setFillPatternImage ( images.jobSeekerProfilePictureImageSource );
 								oranngeLogoImageText.setText ( 'WhyAi Finance' );
 								oranngeTagAreaBackgroundText.setText ( 'WhyAi Sub Ecosystem for FinTech businesses' );
 								oranngeProfileFunctionButtonLabelTexts.get ( '.profileFunctionBubbleClass' ) [ 0 ].setText ( textSourcesSetA [ 0 ] );
@@ -558,7 +559,7 @@
 							break
 							case 2:
 							{
-								profilePictureCircle.setFillPatternImage ( images.companyProfilePictureImageSource );
+								pI2.setFillPatternImage ( images.companyProfilePictureImageSource );
 								oranngeLogoImageText.setText ( 'WhyAi Africa' );
 								oranngeTagAreaBackgroundText.setText ( 'WhyAi Sub Ecosystem for African businesses' );
 								oranngeProfileFunctionButtonLabelTexts.get ( '.profileFunctionBubbleClass' ) [ 0 ].setText ( textSourcesSetC [ 0 ] );
@@ -607,9 +608,10 @@
 					jobSeekerProfilePictureImageSource: 'data/images/1_finance.png',
 					entrepreneurProfilePictureImageSource: 'data/images/0_core.png',
 					companyProfilePictureImageSource: 'data/images/3_africa.png',
-					profileFunctionBubbleImageSource: 'data/images/logo.1_neurons.png',
+					profileFunctionBubbleImageSource: 'data/images/logo.1.png',
 					oranngeLogoImageSource: 'data/images/logo.0_core.png',
-					oranngeTagAreaBackgroundImageSource: 'data/images/logo.0_neurons.png',
+					oranngeTagAreaBackgroundImageSource: 'data/images/logo.0.png',
+					whyAiLogoProfile: 'data/images/logo_profile.png',
 					decorationPictureImageSource: 'data/images/orannge.decoration.png'
 				};
 				
