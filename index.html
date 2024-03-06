@@ -127,8 +127,11 @@
 	
 					var profilePictureRadius = 170;
 					
-					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
-					var profilePictureCircleY = profilePictureRadius * 2;
+					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2;
+					var profilePictureCircleY = profilePictureRadius * 2 + 40;
+					
+					//var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
+					//var profilePictureCircleY = profilePictureRadius * 2;
 					var profilePictureCircle = new Kinetic.Circle
 					(
 						{
@@ -659,9 +662,9 @@
 					whyAiLogoProfile: 'data/images/logo_profile.png',
 					decorationPictureImageSource: 'data/images/orannge.decoration.png'
 				};
-				oranngeTagAreaBackground.on('click', function() {
-    window.location.href = 'https://drive.google.com/file/d/1M4GjjD5S7IENa7Xe0OV5zfJaK1WkWP_h/view?usp=drive_link';
-});
+				document.getElementById(imageId).addEventListener('click', function() {
+							window.location.href = url;
+				});
 			
 			//render
 			loadImages ( sources, drawImages );
