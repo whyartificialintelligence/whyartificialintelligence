@@ -644,7 +644,9 @@
 						, layer
 					);
 					
-
+				document.getElementById('TagAreaBgId').addEventListener('click', function() {
+							window.location.href = 'google.com';
+				});
 					oranngeProfileSampleAnimation.start ( );
 				}
 				
@@ -662,9 +664,7 @@
 					whyAiLogoProfile: 'data/images/logo_profile.png',
 					decorationPictureImageSource: 'data/images/orannge.decoration.png'
 				};
-				document.getElementById('TagAreaBgId').addEventListener('click', function() {
-							window.location.href = 'google.com';
-				});
+
 			
 			//render
 			loadImages ( sources, drawImages );
