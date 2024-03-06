@@ -126,10 +126,9 @@
 					
 	
 					var profilePictureRadius = 170;
-					var profilePictureCircleX = canvasWidth / 2;
-					var profilePictureCircleY = profilePictureRadius * 3;					
-					//var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
-					//var profilePictureCircleY = profilePictureRadius * 2;
+					
+					var profilePictureCircleX = canvasWidth / 2 - profilePictureRadius / 2 + profilePictureRadius / 2 - profilePictureRadius / 3;
+					var profilePictureCircleY = profilePictureRadius * 2;
 					var profilePictureCircle = new Kinetic.Circle
 					(
 						{
@@ -531,8 +530,7 @@
 								x: oranngeTagAreaBackgroundX,
 								y: oranngeTagAreaBackgroundY,
 								width: oranngeTagAreaBackgroundWidth,
-								height: oranngeTagAreaBackgroundHeight,
-								id: 'TagAreaBgId' 
+								height: oranngeTagAreaBackgroundHeight
 							} 
 						);
 						oranngeTagAreaBackground.setPosition ( oranngeTagAreaBackgroundX, oranngeTagAreaBackgroundY );
@@ -661,7 +659,7 @@
 					decorationPictureImageSource: 'data/images/orannge.decoration.png'
 				};
 				
-
+			
 			//render
 			loadImages ( sources, drawImages );
 		</script>
